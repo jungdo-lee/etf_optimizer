@@ -15,7 +15,7 @@ ETF Portfolio Optimizer는 다양한 투자 전략과 최적화 알고리즘을 
 
 3. **애플리케이션 실행**:
    ```bash
-   streamlit run etf_optimizer_app.py
+   streamlit run app.py
    ```
 
 4. **웹 브라우저에서 접속**:
