@@ -79,46 +79,151 @@ class ETFDataManager:
     def get_tickers(self):
         """ETF 목록과 메타데이터를 반환합니다."""
         return {
-            # Dividend-Focused ETFs (DIV)
+            # Dividend-Focused ETFs (DIV) - Stable, income-generating
             "SCHD": {"name": "Schwab U.S. Dividend Equity ETF", "risk_level": 3, "category": "DIV"},
             "VIG": {"name": "Vanguard Dividend Appreciation ETF", "risk_level": 3, "category": "DIV"},
             "VYM": {"name": "Vanguard High Dividend Yield ETF", "risk_level": 3, "category": "DIV"},
             "DVY": {"name": "iShares Select Dividend ETF", "risk_level": 4, "category": "DIV"},
             "NOBL": {"name": "ProShares S&P 500 Dividend Aristocrats ETF", "risk_level": 3, "category": "DIV"},
+            "SDY": {"name": "SPDR S&P Dividend ETF", "risk_level": 3, "category": "DIV"},
+            "HDV": {"name": "iShares Core High Dividend ETF", "risk_level": 3, "category": "DIV"},
+            "SPHD": {"name": "Invesco S&P 500 High Dividend Low Volatility ETF", "risk_level": 3, "category": "DIV"},
+            "FVD": {"name": "First Trust Value Line Dividend Index Fund", "risk_level": 3, "category": "DIV"},
+            "DGRO": {"name": "iShares Core Dividend Growth ETF", "risk_level": 3, "category": "DIV"},
+            "DHS": {"name": "WisdomTree U.S. High Dividend Fund", "risk_level": 4, "category": "DIV"},
+            "DLN": {"name": "WisdomTree U.S. LargeCap Dividend ETF", "risk_level": 3, "category": "DIV"},
+            "FDVV": {"name": "Fidelity High Dividend ETF", "risk_level": 4, "category": "DIV"},
+            "SPYD": {"name": "SPDR Portfolio S&P 500 High Dividend ETF", "risk_level": 4, "category": "DIV"},
+            "DIV": {"name": "Global X SuperDividend U.S. ETF", "risk_level": 5, "category": "DIV"},
+            "SDIV": {"name": "Global X SuperDividend ETF", "risk_level": 5, "category": "DIV"},
+            "ALTY": {"name": "Global X Alternative Income ETF", "risk_level": 4, "category": "DIV"},
+            "YYY": {"name": "Amplify High Income ETF", "risk_level": 5, "category": "DIV"},
 
-            # Covered Call ETFs (CC)
+            # Covered Call ETFs (CC) - High-yield, income-generating with options strategy
             "QYLD": {"name": "Global X NASDAQ 100 Covered Call ETF", "risk_level": 4, "category": "CC"},
+            "XYLD": {"name": "Global X S&P 500 Covered Call ETF", "risk_level": 4, "category": "CC"},
+            "RYLD": {"name": "Global X Russell 2000 Covered Call ETF", "risk_level": 5, "category": "CC"},
             "JEPI": {"name": "JPMorgan Equity Premium Income ETF", "risk_level": 4, "category": "CC"},
             "JEPQ": {"name": "JPMorgan Nasdaq Equity Premium Income ETF", "risk_level": 4, "category": "CC"},
             "DIVO": {"name": "Amplify CWP Enhanced Dividend Income ETF", "risk_level": 4, "category": "CC"},
+            "NUSI": {"name": "Nationwide Nasdaq-100 Risk-Managed Income ETF", "risk_level": 4, "category": "CC"},
+            "PBP": {"name": "Invesco S&P 500 BuyWrite ETF", "risk_level": 4, "category": "CC"},
+            "KNG": {"name": "FT Cboe Vest S&P 500 Dividend Aristocrats Target Income ETF", "risk_level": 4,
+                    "category": "CC"},
+            "SPYI": {"name": "NEOS S&P 500 High Income ETF", "risk_level": 4, "category": "CC"},
+            "APLY": {"name": "YieldMax AAPL Option Income Strategy ETF", "risk_level": 5, "category": "CC"},
+            "SVOL": {"name": "Simplify Volatility Premium ETF", "risk_level": 4, "category": "CC"},
+            "QYLG": {"name": "Global X Nasdaq 100 Covered Call & Growth ETF", "risk_level": 4, "category": "CC"},
+            "NVDY": {"name": "YieldMax NVDA Option Income Strategy ETF", "risk_level": 5, "category": "CC"},
+            "QDTE": {"name": "Roundhill Innovation S&P 500 0DTE Covered Call Strategy ETF", "risk_level": 5,
+                     "category": "CC"},
 
-            # Bond ETFs (BND)
+            # Bond ETFs (BND) - Very stable, fixed-income focused
             "BND": {"name": "Vanguard Total Bond Market ETF", "risk_level": 2, "category": "BND"},
             "AGG": {"name": "iShares Core U.S. Aggregate Bond ETF", "risk_level": 2, "category": "BND"},
             "TIP": {"name": "iShares TIPS Bond ETF", "risk_level": 2, "category": "BND"},
             "BNDX": {"name": "Vanguard Total International Bond ETF", "risk_level": 2, "category": "BND"},
+            "LQD": {"name": "iShares iBoxx $ Investment Grade Corporate Bond ETF", "risk_level": 3, "category": "BND"},
+            "HYG": {"name": "iShares iBoxx $ High Yield Corporate Bond ETF", "risk_level": 4, "category": "BND"},
+            "MUB": {"name": "iShares National Muni Bond ETF", "risk_level": 2, "category": "BND"},
+            "TLT": {"name": "iShares 20+ Year Treasury Bond ETF", "risk_level": 3, "category": "BND"},
+            "IEF": {"name": "iShares 7-10 Year Treasury Bond ETF", "risk_level": 2, "category": "BND"},
+            "SHY": {"name": "iShares 1-3 Year Treasury Bond ETF", "risk_level": 1, "category": "BND"},
+            "BIL": {"name": "SPDR Bloomberg 1-3 Month T-Bill ETF", "risk_level": 1, "category": "BND"},
+            "SGOV": {"name": "iShares 0-3 Month Treasury Bond ETF", "risk_level": 1, "category": "BND"},
+            "TLTW": {"name": "iShares 20+ Year Treasury Bond LNAV ETF", "risk_level": 3, "category": "BND"},  # 추가
 
-            # Large-Cap ETFs (LC)
+            # Large-Cap ETFs (LC) - Broad market, stable growth
             "VOO": {"name": "Vanguard S&P 500 ETF", "risk_level": 5, "category": "LC"},
             "SPY": {"name": "SPDR S&P 500 ETF Trust", "risk_level": 5, "category": "LC"},
-            "QQQ": {"name": "Invesco QQQ Trust", "risk_level": 6, "category": "LC"},
+            "IVV": {"name": "iShares Core S&P 500 ETF", "risk_level": 5, "category": "LC"},
             "VTI": {"name": "Vanguard Total Stock Market ETF", "risk_level": 6, "category": "LC"},
+            "ITOT": {"name": "iShares Core S&P Total U.S. Stock Market ETF", "risk_level": 6, "category": "LC"},
+            "SCHX": {"name": "Schwab U.S. Large-Cap ETF", "risk_level": 5, "category": "LC"},
+            "VV": {"name": "Vanguard Large-Cap ETF", "risk_level": 5, "category": "LC"},
+            "IWB": {"name": "iShares Russell 1000 ETF", "risk_level": 5, "category": "LC"},
+            "QQQ": {"name": "Invesco QQQ Trust", "risk_level": 6, "category": "LC"},
+            "SCHG": {"name": "Schwab U.S. Large-Cap Growth ETF", "risk_level": 6, "category": "LC"},
 
-            # Growth ETFs (GRO)
-            "ARKK": {"name": "ARK Innovation ETF", "risk_level": 7, "category": "GRO"},
-            "VUG": {"name": "Vanguard Growth ETF", "risk_level": 6, "category": "GRO"},
+            # Mid-Cap ETFs (MC) - Moderate stability with growth potential
+            "IJH": {"name": "iShares Core S&P Mid-Cap ETF", "risk_level": 6, "category": "MC"},
+            "MDY": {"name": "SPDR S&P MidCap 400 ETF Trust", "risk_level": 6, "category": "MC"},
+            "VO": {"name": "Vanguard Mid-Cap ETF", "risk_level": 6, "category": "MC"},
+            "SCHM": {"name": "Schwab U.S. Mid-Cap ETF", "risk_level": 6, "category": "MC"},
 
-            # Real Estate ETFs (RE)
-            "VNQ": {"name": "Vanguard Real Estate ETF", "risk_level": 5, "category": "RE"},
+            # Small-Cap ETFs (SC) - Slightly higher risk, but diversified
+            "VB": {"name": "Vanguard Small-Cap ETF", "risk_level": 6, "category": "SC"},
+            "IJR": {"name": "iShares Core S&P Small-Cap ETF", "risk_level": 6, "category": "SC"},
+            "SCHA": {"name": "Schwab U.S. Small-Cap ETF", "risk_level": 6, "category": "SC"},
+
+            # Sector ETFs (SEC) - Stable sectors with moderate risk
+            "XLU": {"name": "Utilities Select Sector SPDR Fund", "risk_level": 3, "category": "SEC"},
+            "XLP": {"name": "Consumer Staples Select Sector SPDR Fund", "risk_level": 4, "category": "SEC"},
+            "XLV": {"name": "Health Care Select Sector SPDR Fund", "risk_level": 5, "category": "SEC"},
+            "XLF": {"name": "Financial Select Sector SPDR Fund", "risk_level": 6, "category": "SEC"},
+            "XLI": {"name": "Industrial Select Sector SPDR Fund", "risk_level": 6, "category": "SEC"},
+            "XLB": {"name": "Materials Select Sector SPDR Fund", "risk_level": 6, "category": "SEC"},
+            "XLE": {"name": "Energy Select Sector SPDR Fund", "risk_level": 6, "category": "SEC"},
+
+            # Real Estate ETFs (RE) - Stable income with moderate risk
+            "VNQ": {"name": "Vanguard Real Estate ETF", "risk_level": 5, "category": "RE"},  # 이미 포함됨
             "SCHH": {"name": "Schwab U.S. REIT ETF", "risk_level": 5, "category": "RE"},
+            "IYR": {"name": "iShares U.S. Real Estate ETF", "risk_level": 5, "category": "RE"},
+            "XLRE": {"name": "Real Estate Select Sector SPDR Fund", "risk_level": 5, "category": "RE"},
+            "ICF": {"name": "iShares Cohen & Steers REIT ETF", "risk_level": 5, "category": "RE"},
+            "RWR": {"name": "SPDR Dow Jones REIT ETF", "risk_level": 5, "category": "RE"},
 
-            # International ETFs (INT)
+            # International ETFs (INT) - Diversified global exposure
+            "VEA": {"name": "Vanguard FTSE Developed Markets ETF", "risk_level": 5, "category": "INT"},
             "VXUS": {"name": "Vanguard Total International Stock ETF", "risk_level": 6, "category": "INT"},
             "EFA": {"name": "iShares MSCI EAFE ETF", "risk_level": 5, "category": "INT"},
+            "IEFA": {"name": "iShares Core MSCI EAFE ETF", "risk_level": 5, "category": "INT"},
+            "VEU": {"name": "Vanguard FTSE All-World ex-US ETF", "risk_level": 6, "category": "INT"},
+            "IXUS": {"name": "iShares Core MSCI Total International Stock ETF", "risk_level": 6, "category": "INT"},
+            "EWJ": {"name": "iShares MSCI Japan ETF", "risk_level": 5, "category": "INT"},
+            "EWU": {"name": "iShares MSCI United Kingdom ETF", "risk_level": 5, "category": "INT"},
+            "EZU": {"name": "iShares MSCI Eurozone ETF", "risk_level": 5, "category": "INT"},
 
-            # Commodities ETFs (COM)
+            # Commodities ETFs (COM) - Stable alternative assets
             "GLD": {"name": "SPDR Gold Shares", "risk_level": 2, "category": "COM"},
             "SLV": {"name": "iShares Silver Trust", "risk_level": 3, "category": "COM"},
+            "IAU": {"name": "iShares Gold Trust", "risk_level": 2, "category": "COM"},
+            "DBC": {"name": "Invesco DB Commodity Index Tracking Fund", "risk_level": 4, "category": "COM"},
+            "USO": {"name": "United States Oil Fund LP", "risk_level": 5, "category": "COM"},
+
+            # Low Volatility ETFs (LV) - Focused on stability
+            "USMV": {"name": "iShares MSCI USA Min Vol Factor ETF", "risk_level": 3, "category": "LV"},
+            "SPLV": {"name": "Invesco S&P 500 Low Volatility ETF", "risk_level": 3, "category": "LV"},
+            "LVHD": {"name": "Franklin U.S. Low Volatility High Dividend ETF", "risk_level": 3, "category": "LV"},
+            "EFAV": {"name": "iShares MSCI EAFE Min Vol Factor ETF", "risk_level": 3, "category": "LV"},
+            "ACWV": {"name": "iShares MSCI Global Min Vol Factor ETF", "risk_level": 3, "category": "LV"},
+
+            # Growth ETFs (GRO) - High-growth focus
+            "ARKK": {"name": "ARK Innovation ETF", "risk_level": 7, "category": "GRO"},
+            "ARKW": {"name": "ARK Next Generation Internet ETF", "risk_level": 7, "category": "GRO"},
+            "VUG": {"name": "Vanguard Growth ETF", "risk_level": 6, "category": "GRO"},
+            "MGK": {"name": "Vanguard Mega Cap Growth ETF", "risk_level": 6, "category": "GRO"},
+            "IWY": {"name": "iShares Russell Top 200 Growth ETF", "risk_level": 6, "category": "GRO"},
+            "TQQQ": {"name": "ProShares UltraPro QQQ", "risk_level": 8, "category": "GRO"},
+            "XLK": {"name": "Technology Select Sector SPDR Fund", "risk_level": 6, "category": "GRO"},
+            "SOXL": {"name": "Direxion Daily Semiconductor Bull 3X Shares", "risk_level": 9, "category": "GRO"},
+            "QQQM": {"name": "Invesco NASDAQ 100 ETF", "risk_level": 6, "category": "GRO"},
+            "IWF": {"name": "iShares Russell 1000 Growth ETF", "risk_level": 6, "category": "GRO"},
+
+            # Additional Stable ETFs Across Categories
+            "PFF": {"name": "iShares Preferred & Income Securities ETF", "risk_level": 4, "category": "DIV"},
+            "SCHZ": {"name": "Schwab U.S. Aggregate Bond ETF", "risk_level": 2, "category": "BND"},
+            "VGSH": {"name": "Vanguard Short-Term Treasury ETF", "risk_level": 1, "category": "BND"},
+            "VCSH": {"name": "Vanguard Short-Term Corporate Bond ETF", "risk_level": 2, "category": "BND"},
+            "SCHB": {"name": "Schwab U.S. Broad Market ETF", "risk_level": 6, "category": "LC"},
+            "SCHV": {"name": "Schwab U.S. Large-Cap Value ETF", "risk_level": 5, "category": "LC"},
+            "DON": {"name": "WisdomTree U.S. MidCap Dividend Fund", "risk_level": 5, "category": "DIV"},
+            "DES": {"name": "WisdomTree U.S. SmallCap Dividend Fund", "risk_level": 6, "category": "DIV"},
+            "REET": {"name": "iShares Global REIT ETF", "risk_level": 5, "category": "RE"},
+            "IDV": {"name": "iShares International Select Dividend ETF", "risk_level": 5, "category": "DIV"},
+            "SPAB": {"name": "SPDR Portfolio Aggregate Bond ETF", "risk_level": 2, "category": "BND"},
+            "SPTI": {"name": "SPDR Portfolio Intermediate Term Treasury ETF", "risk_level": 2, "category": "BND"},
+            "SPTL": {"name": "SPDR Portfolio Long Term Treasury ETF", "risk_level": 3, "category": "BND"},
         }
 
     def load_etf_data(self, force_update=False):
@@ -1739,5 +1844,4 @@ elif page == "몬테카를로 시뮬레이션":
 
 # 앱 시작점
 if __name__ == "__main__":
-    # 여기서는 Streamlit이 자동으로 앱을 실행합니다.
     pass
