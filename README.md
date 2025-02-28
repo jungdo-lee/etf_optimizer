@@ -1,11 +1,18 @@
 # ETF Portfolio Optimizer 사용 가이드
 
-ETF Portfolio Optimizer는 다양한 투자 전략과 최적화 알고리즘을 사용하여 ETF 포트폴리오를 최적화하고 분석할 수 있는 웹 기반 애플리케이션입니다. README 파일과 requirements.txt 파일이 생성되었습니다.
+ETF Portfolio Optimizer는 다양한 투자 전략과 최적화 알고리즘을 사용하여 ETF 포트폴리오를 최적화하고 분석할 수 있는 웹 기반 애플리케이션입니다. 
+README 파일과 requirements.txt 파일이 생성되었습니다.
+
+## 샘플 애플리케이션 실행 결과
+![main.png](main.png)
+
+## 샘플 애플리케이션 웹 주소
+https://etfwise.streamlit.app/
 
 ## 시작하기
 
 1. **코드 다운로드**: 
-   - 모든 Python 코드를 `etf_optimizer_app.py` 파일로 저장합니다.
+   - 모든 Python 코드를 `app.py` 파일로 저장합니다.
    - README.md와 requirements.txt 파일을 같은 디렉토리에 저장합니다.
 
 2. **의존성 설치**:
